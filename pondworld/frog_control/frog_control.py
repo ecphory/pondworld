@@ -82,6 +82,21 @@ class FrogControl(ManualControl):
             return np.array(self.my_coord)[axis] - np.array(trg_coord)[axis]
         return (np.array(self.my_coord) - np.array(trg_coord)).sum() 
     
+    def ascii(self):
+        world = self.env.grid.encode()[:, :, 0]
+        world[self.env.agent_pos] = 8
+        for row in world:
+            for cell in row:
+                if cell == 7:
+                    print('f', end='')
+                elif cell == 1:
+                    print(' ', end='')
+                elif cell == 2:
+                    print('w', end='')
+                else:
+                    print('F', end='')
+            print()
+              
     def look(self):
         if self.obs['image'][self.my_coord[0], -2, 0] == 7:
             return 1  # there is a fly directly in front
