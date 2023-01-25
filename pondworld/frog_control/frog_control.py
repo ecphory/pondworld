@@ -88,13 +88,13 @@ class FrogControl(ManualControl):
         for row in world:
             for cell in row:
                 if cell == 7:
-                    print('f', end='')
+                    print('f', end=' ')
                 elif cell == 1:
-                    print(' ', end='')
+                    print(' ', end=' ')
                 elif cell == 2:
-                    print('w', end='')
+                    print('w', end=' ')
                 else:
-                    print('F', end='')
+                    print('F', end=' ')
             print()
               
     def look(self):
